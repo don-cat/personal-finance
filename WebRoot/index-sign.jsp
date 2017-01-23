@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
   <%
-  	request.setCharacterEncoding("UTF-8");//因为刚才的中文乱码了，所以这里让他渠道的属性变成utf8就不乱了
+  	request.setCharacterEncoding("UTF-8");
   %>
   <div align="right"><%=request.getSession().getAttribute("username") %> 您好</div>
   <hr/>
