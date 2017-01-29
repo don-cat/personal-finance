@@ -7,13 +7,13 @@
   <servlet>
     <description>注册</description>
     <display-name>signup</display-name>
-    <servlet-name>commit</servlet-name>
-    <servlet-class>Servlet.commit</servlet-class>
+    <servlet-name>addUser</servlet-name>
+    <servlet-class>Servlet.addUser</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>commit</servlet-name>
-    <url-pattern>/Servlet/commit</url-pattern>
+    <servlet-name>addUser</servlet-name>
+    <url-pattern>/Servlet/addUser</url-pattern>
   </servlet-mapping>
 
 </web-app>

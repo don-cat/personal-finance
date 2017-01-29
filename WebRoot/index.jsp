@@ -21,23 +21,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  	<div align="right">
+  	</div>
   	<h1 align="center" style="color:green">猫驴理财</h1>
-    <hr>
-    	<%! int i=0;	%>
-    	<%
-    		i++;
-    		out.print(i);
-    		 %> visitors
     		 
-    <form action="/personal-finance/Servlet/commit" method="post">
+    <form action="/personal-finance/Servlet/addUser" method="post">
     	<fieldset>
-    		<legend>注册</legend>
+    		<legend>登陆</legend>
     	
 	    	<label for="username">用户名：</label>
 	    	<input type="text" name="username" /> 
 	        <label for="pass">密码:</label>  
 	        <input type="password" name="pass" /> 
-	        <input type="submit" value="提交post"/>
+	        <input type="submit" value="登陆"/>
         </fieldset>
     </form>
   </body>
