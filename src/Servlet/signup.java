@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class addUser extends HttpServlet {
+import dao.GetConnection;
+
+public class signup extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.doPost(request,response);
@@ -56,6 +58,8 @@ public class addUser extends HttpServlet {
 							System.out.println("µÇÂ½Ê§°Ü£¬Çë¼ì²éÃÜÂë");
 						}
 					}
+				}else{
+					System.out.println("µÇÂ½Ê§°Ü£¬¸ÃÓÃ»§ÉÐÎ´×¢²á");
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();

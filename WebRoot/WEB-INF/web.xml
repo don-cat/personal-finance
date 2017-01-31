@@ -5,15 +5,27 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
   <servlet>
-    <description>注册</description>
+    <description>登陆</description>
     <display-name>signup</display-name>
-    <servlet-name>addUser</servlet-name>
-    <servlet-class>Servlet.addUser</servlet-class>
+    <servlet-name>signup</servlet-name>
+    <servlet-class>Servlet.signup</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>addUser</servlet-name>
-    <url-pattern>/Servlet/addUser</url-pattern>
+    <servlet-name>signup</servlet-name>
+    <url-pattern>/Servlet/signup</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description>注册</description>
+    <display-name>register</display-name>
+    <servlet-name>register</servlet-name>
+    <servlet-class>Servlet.register</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>register</servlet-name>
+    <url-pattern>/Servlet/register</url-pattern>
   </servlet-mapping>
 
 </web-app>

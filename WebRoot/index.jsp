@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	</div>
   	<h1 align="center" style="color:green">猫驴理财</h1>
     		 
-    <form action="/personal-finance/Servlet/addUser" method="post">
+    <form action="/personal-finance/Servlet/signup" method="post">
     	<fieldset>
     		<legend>登陆</legend>
     	
@@ -34,6 +34,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        <label for="pass">密码:</label>  
 	        <input type="password" name="pass" /> 
 	        <input type="submit" value="登陆"/>
+        </fieldset>
+    </form>
+    <form action="/personal-finance/register.jsp" method="post">
+    	<fieldset>
+    		<legend>注册</legend>
+	        <input type="button" value="注册" onClick="window.location.href='register.jsp'"/>
         </fieldset>
     </form>
   </body>

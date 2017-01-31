@@ -26,18 +26,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <%
   	request.setCharacterEncoding("UTF-8");
   %>
-  <div align="right"><%=request.getSession().getAttribute("username") %> 您好</div>
+  <!-- <div align="right"><%=request.getSession().getAttribute("username") %> 您好</div>-->
   <hr/>
     <h1 align="center" style="color:green">猫驴理财</h1>
-    <form action="/Servlet/commit" method="post">
+    <form action="/personal-finance/Servlet/register" method="post">
     	<fieldset>
-    		<legend>记录一笔</legend>
+    		<legend>注册</legend>
     	
 	    	<label for="username">用户名：</label>
 	    	<input type="text" name="username" /> 
-	        <label for="pass">密码:</label>  
-	        <input type="password" name="pass" /> 
-	        <input type="submit" value="提交post"/>
+	        <label for="pass">设置密码:</label>  
+	        <input type="password" name="pass" />
+	        <label for="email">邮箱:</label>  
+	        <input type="test" name="email" />
+	        <input type="submit" value="提交并注册"/>
         </fieldset>
     </form>
   </body>
