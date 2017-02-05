@@ -1,8 +1,11 @@
 package model;
+/*
+ * √ø‘¬’Àµ•
+ */
 
 import model.EnumExpenseType.dailyET;
 
-public class AccountBook {
+public class MonthBill {
 	private String abName;	
 	private String type;
 	public String getAbName() {

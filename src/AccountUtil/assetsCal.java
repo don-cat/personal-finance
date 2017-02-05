@@ -10,7 +10,10 @@ import java.util.ArrayList;
  */
 public class assetsCal {
 	public BigDecimal totalAssets(ArrayList<BigDecimal> assetDetail){
-		return null;
-		
+		BigDecimal total = null;
+		for(int i=0;i<assetDetail.size();i++){
+			total = total.add(assetDetail.get(i));
+		}
+		return total;
 	}
 }

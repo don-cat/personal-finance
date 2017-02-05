@@ -10,28 +10,30 @@ import java.math.BigDecimal;
 public class InterestCal {
 	
 	/**
-	 * 
-	 * @param capital 本金
-	 * @param interest 利率
-	 * @param term 期限
-	 * @return finalValue 单利终值
+	 * 单利计算
+	 * @param p 本金
+	 * @param i 年利率
+	 * @param n 期限(天)
+	 * @return f 单利终值
 	 */
-	public BigDecimal simpleInterCal(BigDecimal capital,double interest,int term){
-		BigDecimal factor = new BigDecimal(1+(interest*0.01/365)*term);
-		BigDecimal finalValue = capital.multiply(factor).setScale(2, BigDecimal.ROUND_HALF_UP);
-		return finalValue;
+	public BigDecimal simpleInterCal(BigDecimal p,double i,int n){
+		BigDecimal factor = new BigDecimal(1+(i*0.01/365)*n);
+		BigDecimal f = p.multiply(factor).setScale(2, BigDecimal.ROUND_HALF_UP);
+		return f;
 	}
 	
 	/**
-	 * 
-	 * @param capital 本金
-	 * @param interest 利率
-	 * @param term 期限
-	 * @return finalValue 复利终值
+	 * 复利计算
+	 * @param p 本金
+	 * @param i 年利率
+	 * @param n 计息期数(如80天，3个月，2年等)
+	 * @return f 复利终值
+	 * 复利的计算公式是：F=P（1+i）^n
 	 */
-	public BigDecimal compoundInterCal(BigDecimal capital,double interest,int term){
-		BigDecimal factor = new BigDecimal(Math.pow(1+interest*0.01/365,term));
-		BigDecimal finalValue = capital.multiply(factor).setScale(2, BigDecimal.ROUND_HALF_UP);
-		return finalValue;
+	public BigDecimal compoundInterCal(BigDecimal p,double i,int n){
+		BigDecimal factor = new BigDecimal(Math.pow(1+i*0.01/365,n));
+		BigDecimal f = p.multiply(factor).setScale(2, BigDecimal.ROUND_HALF_UP);
+		return f;
 	}
+	
 }

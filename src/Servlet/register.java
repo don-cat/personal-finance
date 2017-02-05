@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -38,11 +39,14 @@ public class register extends HttpServlet{
 				if(rs_ifexist.next()){
 					System.out.println("¸ÃÕËºÅÒÑ×¢²á£¬ÇëµÇÂ½");
 				}else{
-					String sql_register="insert into personal_finance.user (userid,username,useremail,userpasswd) values (2,'"+username+"','"+email+"','"+passwd+"');";
+					Date currentTime = new Date();
+					long userid = currentTime.getTime();
+					String sql_register="insert into personal_finance.user (userid,username,useremail,userpasswd) values ("+userid+",'"+username+"','"+email+"','"+passwd+"');";
 					System.out.println(sql_register);
 					int re_register=stmt.executeUpdate(sql_register);
 					if (re_register==1){
 						System.out.println("×¢²á³É¹¦£¡"	);
+						response.sendRedirect("/personal-finance/index-sign.jsp?username="+username);
 					}else System.out.println("×¢²áÊ§°Ü£¡");
 				}
 			} catch (SQLException e) {
