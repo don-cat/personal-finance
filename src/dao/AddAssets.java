@@ -17,7 +17,10 @@ public class AddAssets {
 		
 		String sql_addasset="insert into personal_finance.amount (userid,iore,type,amount) values ("+userid+",'"+IORE+"','"+type+"','"+amount+"');";
 		try {
-			ResultSet rs_addasset = stmt.executeQuery(sql_addasset);
+			int rs_addasset = stmt.executeUpdate(sql_addasset);
+			if (rs_addasset==1){
+				System.out.println("添加成功！"	);
+			}else System.out.println("添加失败！");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
