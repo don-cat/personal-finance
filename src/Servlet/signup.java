@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.GetConnection;
 
-public class signup extends HttpServlet {
+public class SignUp extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.doPost(request,response);

@@ -6,26 +6,26 @@
 
   <servlet>
     <description>登陆</description>
-    <display-name>signup</display-name>
-    <servlet-name>signup</servlet-name>
-    <servlet-class>Servlet.signup</servlet-class>
+    <display-name>SignUp</display-name>
+    <servlet-name>SignUp</servlet-name>
+    <servlet-class>Servlet.SignUp</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>signup</servlet-name>
-    <url-pattern>/Servlet/signup</url-pattern>
+    <servlet-name>SignUp</servlet-name>
+    <url-pattern>/Servlet/SignUp</url-pattern>
   </servlet-mapping>
   
   <servlet>
     <description>注册</description>
-    <display-name>register</display-name>
-    <servlet-name>register</servlet-name>
-    <servlet-class>Servlet.register</servlet-class>
+    <display-name>RegisterServlet</display-name>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>Servlet.RegisterServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>register</servlet-name>
-    <url-pattern>/Servlet/register</url-pattern>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/Servlet/RegisterServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>
