@@ -28,10 +28,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<fieldset>
     		<legend>添加一条记录</legend>
     	
-	    	<label for="username">用户名：</label>
-	    	<input type="text" name="username" /> 
-	        <label for="pass">密码:</label>  
-	        <input type="password" name="pass" /> 
+	    	<label>收/支：</label>
+	    	<select name="收/支">
+	    		<option value="1">收</option>
+	    		<option value="0">支</option>
+	    	</select> 
+	        <label>金额:</label>  
+	        <input type="test" name="amount" />
+	        <label>类别：</label>
+	    	<select name="收/支">
+	    		<option value="1">收</option>
+	    		<option value="0">支</option>
+	    	</select>
 	        <input type="submit" value="登陆"/>
         </fieldset>
     </form>
