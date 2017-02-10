@@ -10,22 +10,42 @@
     <servlet-name>SignUp</servlet-name>
     <servlet-class>Servlet.SignUp</servlet-class>
   </servlet>
-
-  <servlet-mapping>
-    <servlet-name>SignUp</servlet-name>
-    <url-pattern>/Servlet/SignUp</url-pattern>
-  </servlet-mapping>
-  
   <servlet>
     <description>注册</description>
     <display-name>RegisterServlet</display-name>
     <servlet-name>RegisterServlet</servlet-name>
     <servlet-class>Servlet.RegisterServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>枚举</description>
+    <display-name>GetEnumModule</display-name>
+    <servlet-name>GetEnumModule</servlet-name>
+    <servlet-class>Servlet.GetEnumModule</servlet-class>
+  </servlet>
+  <servlet>
+    <description>提交</description>
+    <display-name>GetEnumModule</display-name>
+    <servlet-name>a</servlet-name>
+    <servlet-class>Servlet.a</servlet-class>
+  </servlet>
 
+
+  <servlet-mapping>
+    <servlet-name>SignUp</servlet-name>
+    <url-pattern>/Servlet/SignUp</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/Servlet/RegisterServlet</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetEnumModule</servlet-name>
+    <url-pattern>/servlet/GetEnumModule</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>a</servlet-name>
+    <url-pattern>/servlet/a</url-pattern>
+  </servlet-mapping>
+
 
 </web-app>
