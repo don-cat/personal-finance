@@ -19,16 +19,17 @@ public class GetTypeServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		GetExpenseType getet = new GetExpenseType();
-		ArrayList et = getet.expenseType();
+		ArrayList<String> et = getet.expenseType();
 		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
-		String returnJson = null;
-		for(int i = 0;i<et.size();i++){
+		String returnJson = et.get(0);
+		for(int i = 1;i<et.size();i++){
 			returnJson = returnJson+","+et.get(i);
+			System.out.println(returnJson);
 		}
-		out.write("{ \"type\": "+returnJson+"\"}");
+		out.write("{ \"type\": \""+returnJson+"\"}");
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -34,6 +34,10 @@ public enum EnumExpenseType {
 			}
 			return null;
 		}
+		
+		public String getDailyType() {
+			return dailyType;
+		}
 
 		public void setDailyType(String dailyType) {
 			this.dailyType = dailyType;

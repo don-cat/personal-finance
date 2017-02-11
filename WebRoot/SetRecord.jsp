@@ -21,31 +21,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 
   </head>
+  <script type="text/javascript" src="/personal-finance/js/jquery-3.1.1.js"></script>
   <script type="text/javascript">
   	function addRecordType(){
   		$.ajax({
-  			url:"/Servlet/GetTypeServlet",
+  			url:"/personal-finance/Servlet/GetTypeServlet",
   			dataType:"json",
   			async:true,
   			data:{},
-  			type:"post",
-  			success:function(getType){
-  				$('#RecordType').each(function(){
+  			type:"get",
+  			success:function(req){
+  				$('#RecordType option').each(function(){
   					$(this).remove();
-  				})
+  				});
   				
-  				var TypeArray=req.data.split(",");
+  				var TypeArray=req.type.split(",");
   				for(var i=1;i<TypeArray.length;i++){
-  					$("#RecordType").append("< ")
+  					$("#RecordType").append("<option value='"+i+"'>"+TypeArray[i]+"</option> ");
   				}
+  			},
+  			error:function(){
+  				console.info("诶哟，出错了");
   			}
-  		})
+  		});
   	}
   </script>
   
-  <body>
+  <body onload="addRecordType()">
     <h1 align="center" style="color:green">猫驴理财</h1>
-    <form action="/personal-finance/Servlet/signup" method="post">
+    <form action="/personal-finance/Servlet/GetTypeServlet">
     	<fieldset>
     		<legend>添加一条记录</legend>
     	
@@ -57,9 +61,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        <label>金额:</label>  
 	        <input type="test" name="amount" />
 	        <label>类别：</label>
+	        
 	    	<select id="RecordType" name="收/支">
-	    		<option value="1">收</option>
-	    		<option value="0">支</option>
+	    		<option value="0" > 获取收支类型 </option>
 	    	</select>
 	        <input type="submit" value="登陆"/>
         </fieldset>
