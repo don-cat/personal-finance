@@ -3,7 +3,7 @@ package model;
  * √ø‘¬’Àµ•
  */
 
-import model.EnumExpenseType.dailyET;
+import model.EnumExpenseType;
 
 public class MonthBill {
 	private String abName;	
@@ -19,11 +19,5 @@ public class MonthBill {
 	}
 	public void setType(String type) {
 		this.type = type;
-	}
-
-	
-	
-	public static void main(String[] args) {
-		System.out.println(dailyET.CLOTHING);
 	}
 }

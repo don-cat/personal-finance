@@ -9,14 +9,13 @@ public enum EnumExpenseType {
 		/*
 		 * 支出类型首位为2，收入类型首位为1
 		 */
-//		CLOTHING,FOOD,TRANSPORT,LIVING,INTERTAINMENT,STUDY,HEALTH
 		CLOTHING("服饰",201),
 		FOOD("三餐",202),
-		TRANSPORT("交通",202),
+		TRANSPORT("交通",203),
 		LIVING("住宿",202),
-		INTERTAINMENT("娱乐",202),
-		STUDY("学习",202),
-		SPORT("运动",202);
+		INTERTAINMENT("娱乐",204),
+		STUDY("学习",205),
+		SPORT("运动",206);
 		
 		private String dailyType;
 		private int code;
@@ -25,10 +24,31 @@ public enum EnumExpenseType {
 			this.dailyType = dailyType;
 			this.code = code;
 		}
-	
-		/*
-		 * 旅游账本默认支出类型
-		 */
-//		TRANSPORT,ACCOMMODATION,ADMISSIONTICKET,FOOD,PASSBOOK
+		
+		
+		public String getDailyType(int code) {
+			for (EnumExpenseType type:EnumExpenseType.values()){
+				if(type.getCode()==code){
+					return dailyType;
+				}
+			}
+			return null;
+		}
+
+		public void setDailyType(String dailyType) {
+			this.dailyType = dailyType;
+		}
+
+		public int getCode() {
+			return code;
+		}
+
+		public void setCode(int code) {
+			this.code = code;
+		}
+
+		public void getAllType(){
+			EnumExpenseType[] et = EnumExpenseType.values();
+		}
 	
 }
