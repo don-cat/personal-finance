@@ -22,10 +22,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   <script type="text/javascript">
-  <%
-  	
-  %>
+  	function addRecordType(){
+  		$.ajax({
+  			url:"/Servlet/GetTypeServlet",
+  			dataType:"json",
+  			async:true,
+  			data:{},
+  			type:"post",
+  			success:function(getType){
+  				$('#RecordType').each(function(){
+  					$(this).remove();
+  				})
+  				
+  				var TypeArray=req.data.split(",");
+  				for(var i=1;i<TypeArray.length;i++){
+  					$("#RecordType").append("< ")
+  				}
+  			}
+  		})
+  	}
   </script>
+  
   <body>
     <h1 align="center" style="color:green">猫驴理财</h1>
     <form action="/personal-finance/Servlet/signup" method="post">
@@ -40,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        <label>金额:</label>  
 	        <input type="test" name="amount" />
 	        <label>类别：</label>
-	    	<select name="收/支">
+	    	<select id="RecordType" name="收/支">
 	    		<option value="1">收</option>
 	    		<option value="0">支</option>
 	    	</select>
