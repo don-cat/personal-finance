@@ -23,12 +23,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   <script type="text/javascript" src="/personal-finance/js/jquery-3.1.1.js"></script>
   <script type="text/javascript">
-  	function addRecordType(){
+  	function addEnumType(){
   		$.ajax({
   			url:"/personal-finance/Servlet/GetTypeServlet",
   			dataType:"json",
   			async:true,
-  			data:{},
+  			data:{"item":"RecordType"},
   			type:"get",
   			success:function(req){
   				$('#RecordType option').each(function(){
@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				});
   				
   				var TypeArray=req.type.split(",");
-  				for(var i=1;i<TypeArray.length;i++){
+  				for(var i=0;i<TypeArray.length;i++){
   					$("#RecordType").append("<option value='"+i+"'>"+TypeArray[i]+"</option> ");
   				}
   			},
@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	}
   </script>
   
-  <body onload="addRecordType()">
+  <body onload="addEnumType()">
     <h1 align="center" style="color:green">猫驴理财</h1>
     <form action="/personal-finance/Servlet/GetTypeServlet">
     	<fieldset>
@@ -61,11 +61,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        <label>金额:</label>  
 	        <input type="test" name="amount" />
 	        <label>类别：</label>
-	        
 	    	<select id="RecordType" name="收/支">
 	    		<option value="0" > 获取收支类型 </option>
 	    	</select>
-	        <input type="submit" value="登陆"/>
+	    	<label>币种：</label>
+	    	<select id="currency" name="收/支">
+	    		<option value="0" > 所有币种 </option>
+	    	</select>
+	        <input type="submit" value="完成"/>
         </fieldset>
     </form>
   </body>

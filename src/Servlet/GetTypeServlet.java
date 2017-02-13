@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.GetExpenseType;
+import service.GetAllEnumType;
 
 public class GetTypeServlet extends HttpServlet {
 
@@ -18,8 +18,20 @@ public class GetTypeServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		
-		GetExpenseType getet = new GetExpenseType();
-		ArrayList<String> et = getet.expenseType();
+		String item=request.getParameter("item");
+		
+		GetAllEnumType getet = new GetAllEnumType();
+		ArrayList<String> et=null;
+		
+		switch(item){
+		case "RecordType":
+			ArrayList<String> et1 = getet.GetExpenseType();
+			et=et1;
+			break;
+		case "CurrencyType":
+			ArrayList<String> et2 = getet.GetCurrencyType();
+			et=et2;
+		}
 		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
