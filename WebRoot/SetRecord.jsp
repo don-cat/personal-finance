@@ -45,9 +45,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			}
   		});
   	}
+  	function addEnumType2(){
+  		$.ajax({
+  			url:"/personal-finance/Servlet/GetTypeServlet",
+  			dataType:"json",
+  			async:true,
+  			data:{"item":"CurrencyType"},
+  			type:"get",
+  			success:function(req){
+  				$('#CurrencyType option').each(function(){
+  					$(this).remove();
+  				});
+  				
+  				var TypeArray=req.type.split(",");
+  				for(var i=0;i<TypeArray.length;i++){
+  					$("#CurrencyType").append("<option value='"+i+"'>"+TypeArray[i]+"</option> ");
+  				}
+  			},
+  			error:function(){
+  				console.info("诶哟，出错了");
+  			}
+  		});
+  	}
   </script>
   
-  <body onload="addEnumType()">
+  <body onload="addEnumType(),addEnumType2()">
     <h1 align="center" style="color:green">猫驴理财</h1>
     <form action="/personal-finance/Servlet/GetTypeServlet">
     	<fieldset>
@@ -65,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    		<option value="0" > 获取收支类型 </option>
 	    	</select>
 	    	<label>币种：</label>
-	    	<select id="currency" name="收/支">
+	    	<select id="CurrencyType" name="收/支">
 	    		<option value="0" > 所有币种 </option>
 	    	</select>
 	        <input type="submit" value="完成"/>

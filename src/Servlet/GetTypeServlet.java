@@ -31,6 +31,7 @@ public class GetTypeServlet extends HttpServlet {
 		case "CurrencyType":
 			ArrayList<String> et2 = getet.GetCurrencyType();
 			et=et2;
+			break;
 		}
 		
 		response.setContentType("text/html");
