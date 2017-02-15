@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   <script type="text/javascript" src="/personal-finance/js/jquery-3.1.1.js"></script>
   <script type="text/javascript">
-  	function addEnumType(){
+  	/**function addEnumType(){
   		$.ajax({
   			url:"/personal-finance/Servlet/GetTypeServlet",
   			dataType:"json",
@@ -44,13 +44,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				console.info("诶哟，出错了");
   			}
   		});
-  	}
+  	}**/
   	function addEnumType2(){
+  		var item = new Array();
+  		item.push('RecordType');
+  		item.push('CurrencyType');
   		$.ajax({
   			url:"/personal-finance/Servlet/GetTypeServlet",
   			dataType:"json",
   			async:true,
-  			data:{"item":"CurrencyType"},
+  			data:{"item[]":item},
   			type:"get",
   			success:function(req){
   				$('#CurrencyType option').each(function(){
@@ -69,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	}
   </script>
   
-  <body onload="addEnumType(),addEnumType2()">
+  <body onload="addEnumType2()">
     <h1 align="center" style="color:green">猫驴理财</h1>
     <form action="/personal-finance/Servlet/GetTypeServlet">
     	<fieldset>

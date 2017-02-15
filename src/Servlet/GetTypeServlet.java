@@ -18,35 +18,43 @@ public class GetTypeServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		
-		String item=request.getParameter("item");
+		String[] item = (String[])request.getParameterValues("item[]");
+		String returnJson = null;
+		String returnJson_RecordType = null;
+		String returnJson_CurrencyType = null;
 		
 		GetAllEnumType getet = new GetAllEnumType();
 		ArrayList<String> et=null;
 		
-		switch(item){
-		case "RecordType":
-			ArrayList<String> et1 = getet.GetExpenseType();
-			et=et1;
-			break;
-		case "CurrencyType":
-			ArrayList<String> et2 = getet.GetCurrencyType();
-			et=et2;
-			break;
+		for(int i=0;i<item.length;i++){
+			switch(item[i]){
+			case "RecordType":
+				ArrayList<String> et1 = getet.GetExpenseType();
+				for(int j=0;j<et1.size();j++){
+					returnJson_RecordType=returnJson_RecordType+","+et1.get(j);
+				}
+				break;
+			case "CurrencyType":
+				ArrayList<String> et2 = getet.GetCurrencyType();
+				for(int j=0;j<et2.size();j++){
+					returnJson_CurrencyType=returnJson_CurrencyType+","+et2.get(j);
+				}
+				break;
+			}
 		}
+		
+		
+		
 		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
-		String returnJson = et.get(0);
-		for(int i = 1;i<et.size();i++){
-			returnJson = returnJson+","+et.get(i);
-			System.out.println(returnJson);
-		}
-		out.write("{ \"type\": \""+returnJson+"\"}");
+		returnJson = "{\"RecordType\":\""+returnJson_RecordType+"\""+"\"CurrencyType\":\""+returnJson_CurrencyType+"\"}";
+		System.out.println(returnJson);
+		out.write(returnJson);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.doGet(request,response);
 	}
-
 }
