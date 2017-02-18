@@ -56,11 +56,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			data:{"item[]":item},
   			type:"get",
   			success:function(req){
+  				console.info("成功")
   				$('#CurrencyType option').each(function(){
   					$(this).remove();
   				});
   				
-  				var TypeArray=req.type.split(",");
+  				var TypeArray=req.RecordType.split(",");
+  				for(var i=0;i<TypeArray.length;i++){
+  					$("#RecordType").append("<option value='"+i+"'>"+TypeArray[i]+"</option> ");
+  				}
+  				var TypeArray=req.CurrencyType.split(",");
   				for(var i=0;i<TypeArray.length;i++){
   					$("#CurrencyType").append("<option value='"+i+"'>"+TypeArray[i]+"</option> ");
   				}

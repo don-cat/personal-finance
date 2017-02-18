@@ -49,7 +49,7 @@ public class GetTypeServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
-		returnJson = "{\"RecordType\":\""+returnJson_RecordType+"\""+"\"CurrencyType\":\""+returnJson_CurrencyType+"\"}";
+		returnJson = "{\"RecordType\":\""+returnJson_RecordType+"\""+","+"\"CurrencyType\":\""+returnJson_CurrencyType+"\"}";
 		System.out.println(returnJson);
 		out.write(returnJson);
 	}
