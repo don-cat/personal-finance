@@ -39,6 +39,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<legend>注册</legend>
 	        <input type="button" value="注册" onClick="window.location.href='register.jsp'"/>
         </fieldset>
+        <fieldset>
+    		<legend>记录一笔</legend>
+	        <input type="button" value="记录一笔" onClick="window.location.href='SetRecord.jsp'"/>
+        </fieldset>
     </form>
   </body>
 </html>

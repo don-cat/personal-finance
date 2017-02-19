@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <!-- <div align="right"><%=request.getSession().getAttribute("username") %> 您好</div>-->
   <hr/>
     <h1 align="center" style="color:green">猫驴理财</h1>
-    <form action="/personal-finance/Servlet/register" method="post">
+    <form action="/personal-finance/Servlet/RegisterServlet" method="post">
     	<fieldset>
     		<legend>注册</legend>
     	

@@ -31,7 +31,7 @@ public class RegisterServlet extends HttpServlet{
 		
 		Register regist = new Register();
 		if(regist.Registe_dao(username, passwd, email)){
-			response.sendRedirect("/personal-finance/index-sign.jsp?username="+username);
+			response.sendRedirect("/personal-finance/index.jsp?username="+username);
 		}
 	}
 }
