@@ -2,11 +2,14 @@ package Servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.EnumIncomeType;
 
 public class SetRecordServlet extends HttpServlet {
 
@@ -26,9 +29,20 @@ public class SetRecordServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String accountType=request.getParameter("accountType");
-		String amount=request.getParameter("amount");
+		String amountStr=request.getParameter("amount");
 		String RecordType=request.getParameter("RecordType");
 		String CurrencyType=request.getParameter("CurrencyType");
+		
+		//将前端传来的中文值转换为英文或数字代号
+		int IORE = 0;//设置收支的默认值为支。支为0，收为1
+		if(accountType=="收"){
+			
+			IORE=1;
+		}
+		
+		BigDecimal amount = new BigDecimal(amountStr);
+		
+		
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
