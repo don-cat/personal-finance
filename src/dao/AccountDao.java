@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class AccountDao {
-	public void SetRecord(String userid,String accountType,BigDecimal amount,String RecordType,String CurrencyType){
+	public void addAccount(String userid,String accountType,BigDecimal amount,String RecordType,String CurrencyType){
 		GetConnection conn = new GetConnection();
 		Statement stmt = conn.connect();
 		

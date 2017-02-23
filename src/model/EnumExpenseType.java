@@ -9,10 +9,10 @@ public enum EnumExpenseType {
 		/*
 		 * 支出类型首位为0，收入类型首位为1
 		 */
-		CLOTHING("服饰","001"),
-		FOOD("三餐","002"),
-		TRANSPORT("交通","003"),
-		LIVING("住宿","002"),
+		CLOTHING("服饰","000"),
+		FOOD("三餐","001"),
+		TRANSPORT("交通","002"),
+		LIVING("住宿","003"),
 		INTERTAINMENT("娱乐","004"),
 		STUDY("学习","005"),
 		SPORT("运动","006");

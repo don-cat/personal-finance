@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body onload="addEnumType2()">
     <h1 align="center" style="color:green">猫驴理财</h1>
-    <form action="/personal-finance/Servlet/GetTypeServlet">
+    <form action="/personal-finance/Servlet/SetRecordServlet" method="post">
     	<fieldset>
     		<legend>添加一条记录</legend>
     	

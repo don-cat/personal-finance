@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.AccountService;
 import model.EnumIncomeType;
 
 public class SetRecordServlet extends HttpServlet {
@@ -31,16 +32,23 @@ public class SetRecordServlet extends HttpServlet {
 		String accountType=request.getParameter("accountType");
 		String amountStr=request.getParameter("amount");
 		String RecordType=request.getParameter("RecordType");
-		String CurrencyType=request.getParameter("CurrencyType");
+		String CurrencyType=request.getParameter("CurrencyType");//前台传来的币种类型值直接与Enum里的值对应，因此不需要处理。
+		int accoType=0;
 		
-		//将前端传来的中文值转换为英文或数字代号
-		int IORE = 0;//设置收支的默认值为支。支为0，收为1
-		if(accountType=="收"){
-			
-			IORE=1;
+		System.out.println(RecordType);
+		
+		//将前端传来的收支类型转换为完整代号（对应Enum里的值）
+		if(accountType.equals("1")){
+			RecordType="10"+RecordType;
+			accoType=Integer.parseInt(accountType);
+		}else if(accountType.equals("0")){
+			RecordType="00"+RecordType;
+			accoType=Integer.parseInt(accountType);
 		}
 		
 		BigDecimal amount = new BigDecimal(amountStr);
+		
+		AccountService addAcco = new AccountService(accoType,amount,RecordType,CurrencyType);
 		
 		
 	}

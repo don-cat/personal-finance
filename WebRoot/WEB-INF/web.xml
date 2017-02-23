@@ -30,9 +30,9 @@
   </servlet>
   <servlet>
     <description>记录一笔</description>
-    <display-name>GetEnumModule</display-name>
+    <display-name>SetRecord</display-name>
     <servlet-name>SetRecord</servlet-name>
-    <servlet-class>Servlet.SetRecord</servlet-class>
+    <servlet-class>Servlet.SetRecordServlet</servlet-class>
   </servlet>
 
 
@@ -47,7 +47,7 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>GetEnumModule</servlet-name>
-    <url-pattern>/servlet/GetEnumModule</url-pattern>
+    <url-pattern>/Servlet/GetEnumModule</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>GetTypeServlet</servlet-name>
@@ -55,7 +55,7 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>SetRecord</servlet-name>
-    <url-pattern>/servlet/SetRecord</url-pattern>
+    <url-pattern>/Servlet/SetRecordServlet</url-pattern>
   </servlet-mapping>
 
 

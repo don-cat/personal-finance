@@ -4,16 +4,17 @@ public enum EnumCurrency{
 /*
  * 币种
  */
-	CNY("人民币",1),
-	FRF("法国法郎",2),
-	HKD("港元",3),
+	CNY("人民币",0),
+	FRF("法国法郎",1),
+	HKD("港元",2),
+	AUD("澳大利亚元",3),
 	CHF("瑞士法郎",4),
 	USD("美元",5),
 	CAD("加拿大元",6),
 	GBP("英镑",7),
 	JPY("日元",8),
-	EUR("欧元",9),
-	AUD("澳大利亚元",10);
+	EUR("欧元",9);
+	
 		
 	private String name;
 	private int index;
