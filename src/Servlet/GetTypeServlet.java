@@ -22,6 +22,7 @@ public class GetTypeServlet extends HttpServlet {
 		String returnJson = null;
 		String returnJson_RecordType = null;
 		String returnJson_CurrencyType = null;
+		String returnJson_RecordCode = null;
 		
 		GetAllEnumType getet = new GetAllEnumType();
 		
