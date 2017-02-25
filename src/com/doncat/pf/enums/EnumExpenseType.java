@@ -1,4 +1,8 @@
 package com.doncat.pf.enums;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 支出类型枚举。ET代表ExpenseType
  * @author mamay
@@ -60,8 +64,13 @@ public enum EnumExpenseType {
 			this.code = code;
 		}
 
-		public void getAllType(){
+		public static Map<String,String> getAllType(){
 			EnumExpenseType[] et = EnumExpenseType.values();
+			Map<String,String> map = new HashMap<String,String>();
+			for (EnumExpenseType e : et) {
+				map.put(e.getDailyType(), e.getCode());
+			}
+			return map;
 		}
 	
 }

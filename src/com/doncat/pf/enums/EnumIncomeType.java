@@ -1,5 +1,6 @@
 package com.doncat.pf.enums;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public enum EnumIncomeType {
@@ -62,7 +63,12 @@ public enum EnumIncomeType {
 		this.code = code;
 	}
 
-	public void getAllType(){
-		EnumExpenseType[] et = EnumExpenseType.values();
+	public static Map<String,String> getAllType(){
+		EnumIncomeType[] et = EnumIncomeType.values();
+		Map<String,String> map = new HashMap<String,String>();
+		for (EnumIncomeType e : et) {
+			map.put(e.getDailyType(), e.getCode());
+		}
+		return map;
 	}
 }

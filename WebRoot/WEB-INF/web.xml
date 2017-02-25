@@ -8,31 +8,31 @@
     <description>登陆</description>
     <display-name>SignUp</display-name>
     <servlet-name>SignUp</servlet-name>
-    <servlet-class>com.doncat.pf.SignUp</servlet-class>
+    <servlet-class>com.doncat.pf.servlet.SignUp</servlet-class>
   </servlet>
   <servlet>
     <description>注册</description>
     <display-name>RegisterServlet</display-name>
     <servlet-name>RegisterServlet</servlet-name>
-    <servlet-class>com.doncat.pf.RegisterServlet</servlet-class>
+    <servlet-class>com.doncat.pf.servlet.RegisterServlet</servlet-class>
   </servlet>
   <servlet>
     <description>枚举</description>
     <display-name>GetEnumModule</display-name>
     <servlet-name>GetEnumModule</servlet-name>
-    <servlet-class>com.doncat.pf.GetEnumModule</servlet-class>
+    <servlet-class>com.doncat.pf.enums.GetEnumModule</servlet-class>
   </servlet>
   <servlet>
     <description>获取收支类型</description>
     <display-name>GetTypeServlet</display-name>
     <servlet-name>GetTypeServlet</servlet-name>
-    <servlet-class>com.doncat.pf.GetTypeServlet</servlet-class>
+    <servlet-class>com.doncat.pf.servlet.GetTypeServlet</servlet-class>
   </servlet>
   <servlet>
     <description>记录一笔</description>
     <display-name>SetRecord</display-name>
     <servlet-name>SetRecord</servlet-name>
-    <servlet-class>com.doncat.pf.SetRecordServlet</servlet-class>
+    <servlet-class>com.doncat.pf.servlet.SetRecordServlet</servlet-class>
   </servlet>
 
 
