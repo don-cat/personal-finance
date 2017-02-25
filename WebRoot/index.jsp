@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   	<h1 align="center" style="color:green">猫驴理财</h1>
     		 
-    <form action="/personal-finance/Servlet/signup" method="post">
+    <form action="/personal-finance/signup" method="post">
     	<fieldset>
     		<legend>登陆</legend>
     	

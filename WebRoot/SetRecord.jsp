@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		item.push('RecordType');
   		item.push('CurrencyType');
   		$.ajax({
-  			url:"/personal-finance/Servlet/GetTypeServlet",
+  			url:"/gettypeservlet",
   			dataType:"json",
   			async:true,
   			data:{"item[]":item},
@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body onload="addEnumType2()">
     <h1 align="center" style="color:green">猫驴理财</h1>
-    <form action="/personal-finance/Servlet/SetRecordServlet" method="post">
+    <form action="/personal-finance/setrecordservlet" method="post">
     	<fieldset>
     		<legend>添加一条记录</legend>
     	

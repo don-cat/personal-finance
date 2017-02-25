@@ -8,54 +8,54 @@
     <description>登陆</description>
     <display-name>SignUp</display-name>
     <servlet-name>SignUp</servlet-name>
-    <servlet-class>Servlet.SignUp</servlet-class>
+    <servlet-class>com.doncat.pf.SignUp</servlet-class>
   </servlet>
   <servlet>
     <description>注册</description>
     <display-name>RegisterServlet</display-name>
     <servlet-name>RegisterServlet</servlet-name>
-    <servlet-class>Servlet.RegisterServlet</servlet-class>
+    <servlet-class>com.doncat.pf.RegisterServlet</servlet-class>
   </servlet>
   <servlet>
     <description>枚举</description>
     <display-name>GetEnumModule</display-name>
     <servlet-name>GetEnumModule</servlet-name>
-    <servlet-class>Servlet.GetEnumModule</servlet-class>
+    <servlet-class>com.doncat.pf.GetEnumModule</servlet-class>
   </servlet>
   <servlet>
     <description>获取收支类型</description>
     <display-name>GetTypeServlet</display-name>
     <servlet-name>GetTypeServlet</servlet-name>
-    <servlet-class>Servlet.GetTypeServlet</servlet-class>
+    <servlet-class>com.doncat.pf.GetTypeServlet</servlet-class>
   </servlet>
   <servlet>
     <description>记录一笔</description>
     <display-name>SetRecord</display-name>
     <servlet-name>SetRecord</servlet-name>
-    <servlet-class>Servlet.SetRecordServlet</servlet-class>
+    <servlet-class>com.doncat.pf.SetRecordServlet</servlet-class>
   </servlet>
 
 
 
   <servlet-mapping>
     <servlet-name>SignUp</servlet-name>
-    <url-pattern>/Servlet/SignUp</url-pattern>
+    <url-pattern>/signup</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
-    <url-pattern>/Servlet/RegisterServlet</url-pattern>
+    <url-pattern>/registerservlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>GetEnumModule</servlet-name>
-    <url-pattern>/Servlet/GetEnumModule</url-pattern>
+    <url-pattern>/getenummodule</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>GetTypeServlet</servlet-name>
-    <url-pattern>/Servlet/GetTypeServlet</url-pattern>
+    <url-pattern>/gettypeservlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>SetRecord</servlet-name>
-    <url-pattern>/Servlet/SetRecordServlet</url-pattern>
+    <url-pattern>/setrecordservlet</url-pattern>
   </servlet-mapping>
 
 
