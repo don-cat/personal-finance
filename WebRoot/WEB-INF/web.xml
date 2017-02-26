@@ -34,6 +34,13 @@
     <servlet-name>SetRecord</servlet-name>
     <servlet-class>com.doncat.pf.servlet.SetRecordServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>获取用户账单</description>
+    <display-name>GetAccountBook</display-name>
+    <servlet-name>GetAccountBook</servlet-name>
+    <servlet-class>com.doncat.pf.servlet.GetAccountBook</servlet-class>
+  </servlet>
+
 
 
 
@@ -56,6 +63,10 @@
   <servlet-mapping>
     <servlet-name>SetRecord</servlet-name>
     <url-pattern>/setrecordservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetAccountBook</servlet-name>
+    <url-pattern>/getaccountbook</url-pattern>
   </servlet-mapping>
 
 

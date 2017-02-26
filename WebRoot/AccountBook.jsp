@@ -21,8 +21,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	-->
 
   </head>
-  
+  <script type="text/javascript" src="/personal-finance/js/jquery-3.1.1.js"></script>
+  <script type="text/javascript">
+  	function getAccountBook(){
+  		
+  	}
+  </script>
   <body>
     <h1 align="center" style="color:green">猫驴理财</h1>. <br>
+    <table align="center" border="1">
+    	<tr>	<!tr是行，td是列>
+    		<th>收/支</th>
+    		<th>金额</th>
+    		<th>币种</th>
+    		<th>日期</th>
+    	</tr>
+    	<tr>
+    		<td>
+    			row1,cell
+    		</td>
+    	</tr>
+    </table>
   </body>
 </html>

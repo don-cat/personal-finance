@@ -16,12 +16,13 @@ import com.doncat.pf.enums.EnumIncomeType;
 import com.doncat.pf.model.ResponseJson;
 import com.doncat.pf.service.GetAllEnumType;
 import com.doncat.pf.util.JsonUtil;
-
+/**
+ * 获取EnumIncomeType、EnumExpenseType、CurrencyType的枚举值，返回给前台
+ * @author don-cat
+ *
+ */
 public class GetTypeServlet extends HttpServlet {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,7 +47,6 @@ public class GetTypeServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		returnJson = JsonUtil.obj2Str(respJson);
-		System.out.println("returnJson:"+returnJson);
 		out.write(returnJson);
 	}
 
