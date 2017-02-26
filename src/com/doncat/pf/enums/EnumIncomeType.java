@@ -10,10 +10,7 @@ public enum EnumIncomeType {
 	SALARY("工资","100"),
 	REDPACKAGE("红包","101"),
 	PARTTIMEJOB("兼职","102"),
-	INVEST("投资收益","103"),
-	INTERTAINMENT("娱乐","104"),
-	STUDY("学习","105"),
-	SPORT("运动","106");
+	INVEST("投资收益","103");
 	
 	private String dailyType;
 	private String code;
@@ -63,11 +60,11 @@ public enum EnumIncomeType {
 		this.code = code;
 	}
 
-	public static Map<String,String> getAllType(){
+	public static Map<String,String> getAllMap(){
 		EnumIncomeType[] et = EnumIncomeType.values();
 		Map<String,String> map = new HashMap<String,String>();
 		for (EnumIncomeType e : et) {
-			map.put(e.getDailyType(), e.getCode());
+			map.put(e.getCode(), e.getDailyType());
 		}
 		return map;
 	}

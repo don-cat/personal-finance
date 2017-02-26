@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.doncat.pf.dao.GetConnection;
-import com.doncat.pf.dao.Register;
+import com.doncat.pf.dao.UserDao;
+import com.doncat.pf.service.RegisterService;
 
 public class RegisterServlet extends HttpServlet{
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,8 +30,8 @@ public class RegisterServlet extends HttpServlet{
 		String passwd=request.getParameter("pass");
 		String email=request.getParameter("email");
 		
-		Register regist = new Register();
-		if(regist.Registe_dao(username, passwd, email)){
+		RegisterService registe = new RegisterService();
+		if(registe.registe(username, passwd, email)){
 			response.sendRedirect("/personal-finance/index.jsp?username="+username);
 		}
 	}

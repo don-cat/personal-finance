@@ -31,32 +31,22 @@ public class GetTypeServlet extends HttpServlet {
 
 		String[] item = (String[]) request.getParameterValues("item[]");
 		String returnJson = null;
+		ResponseJson respJson = new ResponseJson();
 		
 		for (int i = 0; i < item.length; i++) {
 			switch (item[i]) {
 			case "RecordType":
-				ResponseJson respJson = new ResponseJson().add("EnumIncomeType",EnumIncomeType.getAllType()).add("EnumExpenseType",EnumExpenseType.getAllType());
-				returnJson = JsonUtil.obj2Str(respJson);
+				respJson = respJson.add("EnumIncomeType",EnumIncomeType.getAllMap()).add("EnumExpenseType",EnumExpenseType.getAllMap());
 				break;
 			case "CurrencyType":
-				EnumCurrency[] cuvalues = EnumCurrency.values();
-//				for(int j =0;j<cuvalues.length;j++){
-//					cuvalues[j].
-//				}
-//				for (int j = 0; j < et3.size(); j++) {
-//					if (returnJson_CurrencyType == null) {
-//						returnJson_CurrencyType = et3.get(j);
-//					} else {
-//						returnJson_CurrencyType = returnJson_CurrencyType + "," + et3.get(j);
-//					}
-//				}
+				respJson = respJson.add("CurrencyType",EnumCurrency.getAllMap());
 				break;
 			}
 		}
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		returnJson = JsonUtil.obj2Str(respJson);
 		System.out.println("returnJson:"+returnJson);
-//		returnJson = "{\"RecordType\":\"" + "" + "\"" + "," + "\"CurrencyType\":\"" + returnJson_CurrencyType + "\"}";
 		out.write(returnJson);
 	}
 

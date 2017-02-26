@@ -23,18 +23,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   <script type="text/javascript" src="/personal-finance/js/jquery-3.1.1.js"></script>
   <script type="text/javascript">
+  	var JsonData=null;
+  	function onAccountTypeChange(){
+  		//拿accountType下拉框的值
+  		var accountTypeNum=$("#accountType").val();
+  		var type;
+  		if(accountTypeNum==1){//如果是收
+  			type=JsonData.data.EnumIncomeType;
+  		}else{//如果是支
+  			type=JsonData.data.EnumExpenseType;
+  		}
+  		$('#RecordType option').each(function(){
+				$(this).remove();
+			});
+  		$.each(type, function(key, value){
+			$("#RecordType").append("<option value='"+key+"'>"+value+"</option> ");
+		});
+  	}
+
   	function addEnumType2(){
   		var item = new Array();
   		item.push('RecordType');
   		item.push('CurrencyType');
   		$.ajax({
-  			url:"/gettypeservlet",
+  			url:"/personal-finance/gettypeservlet",
   			dataType:"json",
   			async:true,
   			data:{"item[]":item},
   			type:"get",
   			success:function(req){
-  				console.info("成功")
+  				JsonData=req;
   				$('#CurrencyType option').each(function(){
   					$(this).remove();
   				});
@@ -42,14 +60,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   					$(this).remove();
   				});
   				
-  				var TypeArray=req.RecordType.split(",");
-  				for(var i=0;i<TypeArray.length;i++){
-  					$("#RecordType").append("<option value='"+i+"'>"+TypeArray[i]+"</option> ");
-  				}
-  				var TypeArray=req.CurrencyType.split(",");
-  				for(var i=0;i<TypeArray.length;i++){
-  					$("#CurrencyType").append("<option value='"+i+"'>"+TypeArray[i]+"</option> ");
-  				}
+  				var CurrencyTypeMap=JsonData.data.CurrencyType;
+  				$.each(CurrencyTypeMap, function(key, value){
+  					$("#CurrencyType").append("<option value='"+key+"'>"+value+"</option> ");
+  				}); 
+  				var RecordTypeMap=JsonData.data.EnumExpenseType;
+  				$.each(RecordTypeMap, function(key, value){
+  					$("#RecordType").append("<option value='"+key+"'>"+value+"</option> ");
+  				}); 
   			},
   			error:function(){
   				console.info("诶哟，出错了");
@@ -65,12 +83,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<legend>添加一条记录</legend>
     	
 	    	<label>收/支：</label>
-	    	<select name="accountType">
+	    	<select id="accountType" name="accountType" onchange="onAccountTypeChange()">
 	    		<option value="1">收</option>
 	    		<option value="0">支</option>
 	    	</select> 
 	        <label>金额:</label>  
-	        <input type="test" name="amount" />
+	        <input id="amount" type="test" name="amount" />
 	        <label>类别：</label>
 	    	<select id="RecordType" name="RecordType">
 	    		<option value="0" > 获取收支类型 </option>

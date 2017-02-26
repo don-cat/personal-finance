@@ -1,12 +1,15 @@
 package com.doncat.pf.service;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import com.doncat.pf.dao.AccountDao;
 
 public class AccountService {
-	public void AddAccount(int accoType,BigDecimal amount,String RecordType,String CurrencyType){
+	public boolean AddAccount(String userid,String accountType,BigDecimal amount,String RecordType,String CurrencyType){
 		AccountDao addAccoDao = new AccountDao();
-//		addAccoDao.addAccount(userid, accoType, amount, RecordType, CurrencyType);;
+		Date currentTime = new Date();
+		long id = currentTime.getTime();
+		return(addAccoDao.addAccount(id,userid, accountType, amount, RecordType, CurrencyType));
 	}
 }

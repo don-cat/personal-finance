@@ -64,11 +64,11 @@ public enum EnumExpenseType {
 			this.code = code;
 		}
 
-		public static Map<String,String> getAllType(){
+		public static Map<String,String> getAllMap(){
 			EnumExpenseType[] et = EnumExpenseType.values();
 			Map<String,String> map = new HashMap<String,String>();
 			for (EnumExpenseType e : et) {
-				map.put(e.getDailyType(), e.getCode());
+				map.put(e.getCode(), e.getDailyType());
 			}
 			return map;
 		}

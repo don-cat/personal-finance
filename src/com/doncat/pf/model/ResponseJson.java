@@ -8,7 +8,7 @@ import com.doncat.pf.enums.JsonStatusEnum;
 
 /**
  * 返回的Json对象
- * @author Lobinary
+ * @author don-cat
  *
  */
 public class ResponseJson {
@@ -22,7 +22,6 @@ public class ResponseJson {
 		this.status = JsonStatusEnum.SUCCESS;
 		this.msg = "";
 	}
-
 	
 	public ResponseJson(Object data) {
 		super();
@@ -54,11 +53,6 @@ public class ResponseJson {
 	}
 	public void setData(Object data) {
 		this.data = data;
-	}
-	
-	@Override
-	public String toString() {
-		return "ResponseJson [status=" + status + ", msg=" + msg + ", data=" + data + "]";
 	}
 
 	@SuppressWarnings("unchecked")

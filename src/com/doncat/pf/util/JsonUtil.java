@@ -1,6 +1,6 @@
 package com.doncat.pf.util;
 
-import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 public class JsonUtil {
 
@@ -11,12 +11,12 @@ public class JsonUtil {
 	 */
 	public static String obj2Str(Object respJson) {
         try {
-			JSONArray jsonArray = JSONArray.fromObject(respJson);
-			return jsonArray.toString();
+        	JSONObject jsonObject = JSONObject.fromObject(respJson);
+//			JSONArray jsonArray = JSONArray.fromObject(respJson);
+			return jsonObject.toString();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
         return null;
 	}
-
 }

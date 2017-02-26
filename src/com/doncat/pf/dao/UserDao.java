@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
 
-public class Register {
+public class UserDao {
 	public boolean Registe_dao(String username,String passwd,String email){
 		GetConnection conn = new GetConnection();
 		Statement stmt = conn.connect();

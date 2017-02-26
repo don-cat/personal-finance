@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.doncat.pf.enums.EnumIncomeType;
 import com.doncat.pf.service.AccountService;
-
+/**
+ * 接收到提交记账记录的请求后，添加数据到数据库，并跳转到记账展示页面
+ * @author don-cat
+ *
+ */
 public class SetRecordServlet extends HttpServlet {
 
 	/**
@@ -32,25 +36,14 @@ public class SetRecordServlet extends HttpServlet {
 		String accountType=request.getParameter("accountType");
 		String amountStr=request.getParameter("amount");
 		String RecordType=request.getParameter("RecordType");
-		String CurrencyType=request.getParameter("CurrencyType");//前台传来的币种类型值直接与Enum里的值对应，因此不需要处理。
-		int accoType=0;
-		
-		System.out.println(RecordType);
-		
-		//将前端传来的收支类型转换为完整代号（对应Enum里的值）
-		if(accountType.equals("1")){
-			RecordType="10"+RecordType;
-			accoType=Integer.parseInt(accountType);
-		}else if(accountType.equals("0")){
-			RecordType="00"+RecordType;
-			accoType=Integer.parseInt(accountType);
-		}
+		String CurrencyType=request.getParameter("CurrencyType");
 		
 		BigDecimal amount = new BigDecimal(amountStr);
 		
-//		AccountService addAcco = new AccountService(accoType,amount,RecordType,CurrencyType);
-//		
-		
+		AccountService addAcco = new AccountService();
+		if(addAcco.AddAccount("1488104129633",accountType,amount,RecordType,CurrencyType)){
+			response.sendRedirect("/personal-finance/AccountBook.jsp");
+		}
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
