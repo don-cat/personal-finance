@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.doncat.pf.enums.EnumIncomeType;
-import com.doncat.pf.service.AccountService;
+import com.doncat.pf.service.AddAccountService;
 /**
  * 接收到提交记账记录的请求后，添加数据到数据库，并跳转到记账展示页面
  * @author don-cat
@@ -30,7 +30,7 @@ public class SetRecordServlet extends HttpServlet {
 		
 		BigDecimal amount = new BigDecimal(amountStr);
 		
-		AccountService addAcco = new AccountService();
+		AddAccountService addAcco = new AddAccountService();
 		if(addAcco.AddAccount("1488104129633",accountType,amount,RecordType,CurrencyType)){
 			response.sendRedirect("/personal-finance/AccountBook.jsp");
 		}

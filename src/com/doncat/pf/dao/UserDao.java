@@ -25,7 +25,6 @@ public class UserDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println(re_register);
 		if (re_register==1){
 			return true;//×¢²á³É¹¦
 		}else {

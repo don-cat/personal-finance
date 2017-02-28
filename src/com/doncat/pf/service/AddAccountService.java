@@ -6,7 +6,7 @@ import java.util.Date;
 import com.doncat.pf.dao.AccountDao;
 import com.doncat.pf.model.Account;
 
-public class AccountService {
+public class AddAccountService {
 	public boolean AddAccount(String userid,String accountType,BigDecimal amount,String RecordType,String CurrencyType){
 		AccountDao addAccoDao = new AccountDao();
 		Date currentTime = new Date();
