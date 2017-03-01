@@ -17,7 +17,6 @@ public class AccountDao {
 		Statement stmt = conn.connect();
 		
 		String sql_addAccount="insert into personal_finance.account (id,userid,accountType,amount,RecordType,CurrencyType) values ('"+acc.getId()+"','"+acc.getUserid()+"','"+acc.getAccountType()+"',"+acc.getAmount()+",'"+acc.getRecordType()+"','"+acc.getCurrencyType()+"');";
-		System.out.println(sql_addAccount);
 		try {
 			int rs_addasset = stmt.executeUpdate(sql_addAccount);
 			if (rs_addasset==1){
@@ -52,13 +51,6 @@ public class AccountDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		System.out.println(returnAccountList.size());
 		return null;
-	}
-	
-	public static void main(String[] args) {
-		AccountDao a = new AccountDao();
-		a.queryUserAccount("1488104129633");
 	}
 }
