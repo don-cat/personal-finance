@@ -24,7 +24,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <script type="text/javascript" src="/personal-finance/js/jquery-3.1.1.js"></script>
   <script type="text/javascript">
   	function getAccountBook(){
-  		
+  		$.ajax({
+  			url:"/personal-finance/getaccountbook",
+  			dataType:"json",
+  			async:true,
+  			data:{},
+  			type:"get",
+  			success:function(req){
+  				JsonData=req;
+  				$('#CurrencyType option').each(function(){
+  					$(this).remove();
+  				});
+  				$('#RecordType option').each(function(){
+  					$(this).remove();
+  				});
+  				
+  				var CurrencyTypeMap=JsonData.data.CurrencyType;
+  				$.each(CurrencyTypeMap, function(key, value){
+  					$("#CurrencyType").append("<option value='"+key+"'>"+value+"</option> ");
+  				}); 
+  				var RecordTypeMap=JsonData.data.EnumExpenseType;
+  				$.each(RecordTypeMap, function(key, value){
+  					$("#RecordType").append("<option value='"+key+"'>"+value+"</option> ");
+  				}); 
+  			},
+  			error:function(){
+  				console.info("诶哟，出错了");
+  			}
+  		});
   	}
   </script>
   <body>
