@@ -40,20 +40,25 @@ public class SignUp extends HttpServlet {
 			String paramValue = (String) session.getAttribute("paramName");//以后想用到用户名，可以直接通过session取到
 //			response.sendRedirect("/personal-finance/index-sign.jsp?username="+username+"&passwd="+passwd);
 			
-			String sql_ifexist = "select * from personal_finance.user where username = "+username+" limit 1;"; 
+			String sql_ifexist = "select * from personal_finance.user where username = '"+username+"' limit 1"; 
+			System.out.println(sql_ifexist);
 			try {
 				ResultSet rs_ifexist = stmt.executeQuery(sql_ifexist);
 				while(rs_ifexist.next()){
 					flag = true;
 				}
 				if (flag=true){
-					String sql_checkpasswd = "select userpasswd from personal_finance.user where username = "+username+";"; 
+					String sql_checkpasswd = "select userpasswd from personal_finance.user where username = '"+username+"';"; 
 					ResultSet rs_checkpasswd = stmt.executeQuery(sql_checkpasswd);
 					while(rs_checkpasswd.next()){
 						System.out.println(rs_checkpasswd.getString("userpasswd")+passwd);
 						if(rs_checkpasswd.getString("userpasswd").equals(passwd)){
 							System.out.println("登陆成功！");
-							response.sendRedirect("/personal-finance/index-sign.jsp?username="+username+"&passwd="+passwd);
+							try{
+								response.sendRedirect("/personal-finance/navigation.jsp?username="+username+"&passwd="+passwd);
+							}catch (Exception e){
+								System.out.println(e);
+							}
 						}else{
 							System.out.println("登陆失败，请检查密码");
 						}
@@ -65,8 +70,6 @@ public class SignUp extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else{
-//			PrintWriter out = response.getWriter();
-//			out.println("请填写用户名及密码");
 			System.out.println("请填写用户名及密码");
 			response.sendRedirect("/personal-finance/index.jsp");
 		}

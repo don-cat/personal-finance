@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <script type="text/javascript">
   	function getAccountBook(){
   		$.ajax({
-  			url:"/personal-finance/getaccountbook",
+  			url:"/personal-finance/accountbook",
   			dataType:"json",
   			async:true,
   			data:{},
