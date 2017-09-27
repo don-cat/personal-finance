@@ -27,7 +27,7 @@ public class SignUp extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String username=request.getParameter("username");
-		String passwd=request.getParameter("pass");
+		String passwd=request.getParameter("passwd");
 		
 		GetConnection conn = new GetConnection();
 		Statement stmt = conn.connect();
@@ -46,8 +46,9 @@ public class SignUp extends HttpServlet {
 				ResultSet rs_ifexist = stmt.executeQuery(sql_ifexist);
 				while(rs_ifexist.next()){
 					flag = true;
+					System.out.println("flag is true");
 				}
-				if (flag=true){
+				if (flag==true){
 					String sql_checkpasswd = "select userpasswd from personal_finance.user where username = '"+username+"';"; 
 					ResultSet rs_checkpasswd = stmt.executeQuery(sql_checkpasswd);
 					while(rs_checkpasswd.next()){
@@ -55,7 +56,7 @@ public class SignUp extends HttpServlet {
 						if(rs_checkpasswd.getString("userpasswd").equals(passwd)){
 							System.out.println("µÇÂ½³É¹¦£¡");
 							try{
-								response.sendRedirect("/personal-finance/navigation.jsp?username="+username+"&passwd="+passwd);
+								response.sendRedirect("/personal-finance/navigation.jsp?username="+username);
 							}catch (Exception e){
 								System.out.println(e);
 							}
@@ -64,6 +65,11 @@ public class SignUp extends HttpServlet {
 						}
 					}
 				}else{
+					try{
+						response.sendRedirect("/personal-finance/SignInFailed.jsp?username="+username+"&repCode=1");
+					}catch (Exception e){
+						System.out.println(e);
+					}
 					System.out.println("µÇÂ½Ê§°Ü£¬¸ÃÓÃ»§ÉÐÎ´×¢²á");
 				}
 			} catch (SQLException e) {
