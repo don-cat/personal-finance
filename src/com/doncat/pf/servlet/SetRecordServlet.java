@@ -34,6 +34,7 @@ public class SetRecordServlet extends HttpServlet {
 		AddAccountService addAcco = new AddAccountService();
 		if(addAcco.AddAccount("1488104129633",accountType,amount,RecordType,CurrencyType)){
 //			response.sendRedirect("/personal-finance/AccountBook.jsp");
+			
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/AccountBook.jsp"); 
 			requestDispatcher.forward(request, response);
 		}

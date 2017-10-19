@@ -1,4 +1,7 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@page import="java.io.PrintWriter"%>
+<%@page import="com.doncat.pf.service.QueryAccountService"%>
+<%@page import="com.doncat.pf.model.Account" %>
+<%@page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -55,6 +58,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	}
   </script>
   <body>
+  <%
+  	QueryAccountService queryAccount = new QueryAccountService();
+  	ArrayList<Account> queryAccountList = queryAccount.QueryAccount("1488104129633");
+  	int size = queryAccountList.size();
+  %>
+  
     <h1 align="center" style="color:green">猫驴理财</h1>. <br>
     <table align="center" border="1">
     	<tr>	<!tr是行，td是列>
@@ -65,7 +74,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	</tr>
     	<tr>
     		<td>
-    			row1,cell
+    			<h3><%=size%></h3>
     		</td>
     	</tr>
     </table>
