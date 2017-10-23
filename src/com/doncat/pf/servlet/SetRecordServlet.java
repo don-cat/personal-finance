@@ -3,6 +3,7 @@ package com.doncat.pf.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,7 +33,8 @@ public class SetRecordServlet extends HttpServlet {
 		BigDecimal amount = new BigDecimal(amountStr);
 		
 		AddAccountService addAcco = new AddAccountService();
-		if(addAcco.AddAccount("1488104129633",accountType,amount,RecordType,CurrencyType)){
+		Date nowDate = new Date();
+		if(addAcco.AddAccount("1488104129633",accountType,amount,RecordType,CurrencyType,nowDate)){
 //			response.sendRedirect("/personal-finance/AccountBook.jsp");
 			
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/AccountBook.jsp"); 

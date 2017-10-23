@@ -1,6 +1,7 @@
 package com.doncat.pf.model;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * 账目对象，对应一条记录。许多条账目即组成账本（AccountBill)
@@ -14,7 +15,14 @@ public class Account {
 	private BigDecimal amount;//金额
 	private String RecordType;//消费or收入的类别
 	private String CurrencyType;//币种
+	private Date recordTime;//记录时间
 	
+	public Date getRecordTime() {
+		return recordTime;
+	}
+	public void setRecordTime(Date recordTime) {
+		this.recordTime = recordTime;
+	}
 	public String getId() {
 		return id;
 	}

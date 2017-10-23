@@ -16,7 +16,7 @@ public class AccountDao {
 		GetConnection conn = new GetConnection();
 		Statement stmt = conn.connect();
 		
-		String sql_addAccount="insert into personal_finance.account (id,userid,accountType,amount,RecordType,CurrencyType) values ('"+acc.getId()+"','"+acc.getUserid()+"','"+acc.getAccountType()+"',"+acc.getAmount()+",'"+acc.getRecordType()+"','"+acc.getCurrencyType()+"');";
+		String sql_addAccount="insert into personal_finance.account (id,userid,accountType,amount,RecordType,CurrencyType,recordTime) values ('"+acc.getId()+"','"+acc.getUserid()+"','"+acc.getAccountType()+"',"+acc.getAmount()+",'"+acc.getRecordType()+"','"+acc.getCurrencyType()+"','"+acc.getRecordTime()+"');";
 		try {
 			int rs_addasset = stmt.executeUpdate(sql_addAccount);
 			if (rs_addasset==1){

@@ -72,11 +72,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		<th>币种</th>
     		<th>日期</th>
     	</tr>
+    	<%
+    		for(int i=0;i<queryAccountList.size();i++){
+    	%>
     	<tr>
     		<td>
-    			<h3><%=size%></h3>
+    			<h3><%=queryAccountList.get(i).getAccountType()
+    			%></h3>
+    		</td>
+    		<td>
+    			<h3><%=queryAccountList.get(i).getAmount()
+    			%></h3>
+    		</td>
+    		<td>
+    			<h3><%=queryAccountList.get(i).getCurrencyType()
+    			%></h3>
     		</td>
     	</tr>
+    	<%
+    		}
+    	%>
+    	
     </table>
   </body>
 </html>
